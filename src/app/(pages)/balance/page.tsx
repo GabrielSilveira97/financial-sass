@@ -6,18 +6,23 @@ import {
    Receipt,
    TrendingUp,
 } from "lucide-react";
-
+import { Button } from "@/components/ui/button";
+import { FileText } from "lucide-react";
 const BalancePage = () => {
    return (
-      <main className="grid grid-cols-2 gap-4 p-10 ">
+      <main className="px-10 flex flex-col gap-5 py-5">
+         <section className="flex justify-end gap-2">
+            <Button variant="secondary" ><FileText/></Button>
+         </section>
+         <section className="grid lg:grid-cols-2 gap-4">
          <BalanceCard
             title="Total Entradas"
-            icon={BanknoteArrowUp}
+            icon={BanknoteArrowDown}
             value={balance.total_entradas}
          />
          <BalanceCard
             title="Total Despesas"
-            icon={BanknoteArrowDown}
+            icon={BanknoteArrowUp}
             value={balance.total_despesas}
          />
          <BalanceCard
@@ -30,6 +35,7 @@ const BalancePage = () => {
             icon={Receipt}
             value={balance.ticket_medio}
          />
+         </section>
       </main>
    );
 };

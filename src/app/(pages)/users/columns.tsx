@@ -1,7 +1,6 @@
 "use client";
 import { ColumnDef } from "@tanstack/react-table";
 import { User } from "@/types/usersTypes";
-import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 
 const userColumns: ColumnDef<User>[] = [

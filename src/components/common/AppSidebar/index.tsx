@@ -27,7 +27,7 @@ const AppSidebar = () => {
                         key={item.id}
                         className={
                            pathname === item.pathname
-                              ? "flex items-center gap-3 bg-input p-2 rounded transition-all"
+                              ? "flex items-center gap-3 bg-input p-2 rounded transition-all text-primary"
                               : "flex items-center gap-3 hover:bg-input p-2 rounded transition-all"
                         }
                         href={item.pathname}

@@ -9,7 +9,7 @@ interface CardProps {
 
 const BalanceCard = ({ title, icon: Icon, value }: CardProps) => {
    return (
-      <Card className="flex flex-col gap-10">
+      <Card className="flex flex-col gap-10 ">
          <CardHeader className="flex justify-between">
             <CardTitle className="text-xl">{title}</CardTitle>
             <Icon className="text-primary" />
