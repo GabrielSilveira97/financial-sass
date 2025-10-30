@@ -13,13 +13,13 @@ const UsersPage = () => {
          <section className="flex justify-end gap-2">
             <Dialog>
                <DialogTrigger asChild>
-                  <Button variant="default" >
-                     Novo Usuário
-                  </Button>
+                  <Button variant="default">Novo Usuário</Button>
                </DialogTrigger>
-               <DialogForm title="Novo Usuário"/>
+               <DialogForm title="Novo Usuário" />
             </Dialog>
-            <Button variant="secondary" ><FileText/></Button>
+            <Button variant="secondary">
+               <FileText />
+            </Button>
          </section>
          <section>
             <DataTable columns={userColumns} data={users} />

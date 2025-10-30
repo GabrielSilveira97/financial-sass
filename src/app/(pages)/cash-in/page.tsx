@@ -12,13 +12,13 @@ const CashInPage = () => {
          <section className="flex justify-end gap-2">
             <Dialog>
                <DialogTrigger asChild>
-                  <Button variant="default" >
-                     Nova Entrada
-                  </Button>
+                  <Button variant="default">Nova Entrada</Button>
                </DialogTrigger>
-               <DialogForm title="Nova Entrada"/>
+               <DialogForm title="Nova Entrada" />
             </Dialog>
-            <Button variant="secondary" ><FileText/></Button>
+            <Button variant="secondary">
+               <FileText />
+            </Button>
          </section>
          <section>
             <DataTable columns={cashInColumns} data={cashIns} />

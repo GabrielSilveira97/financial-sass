@@ -12,13 +12,13 @@ const CashOutPage = () => {
          <section className="flex justify-end gap-2">
             <Dialog>
                <DialogTrigger asChild>
-                  <Button variant="default" >
-                     Nova Despesa
-                  </Button>
+                  <Button variant="default">Nova Despesa</Button>
                </DialogTrigger>
-               <DialogForm title="Nova Despesa"/>
+               <DialogForm title="Nova Despesa" />
             </Dialog>
-            <Button variant="secondary" ><FileText/></Button>
+            <Button variant="secondary">
+               <FileText />
+            </Button>
          </section>
          <section>
             <DataTable data={cashOuts} columns={cashOutColumns} />

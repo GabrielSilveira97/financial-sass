@@ -1,20 +1,16 @@
-import { DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface DialogProps {
-    title: string
+   title: string;
 }
 
+const DialogForm = ({ title }: DialogProps) => {
+   return (
+      <DialogContent>
+         <DialogTitle>{title}</DialogTitle>
+         <div>Aqui fica o formulario</div>
+      </DialogContent>
+   );
+};
 
-const DialogForm = ({title} : DialogProps) => {
-    return(
-        <DialogContent>
-            <DialogTitle>{title}</DialogTitle>
-            <div>
-                Aqui fica o formulario
-            </div>
-        </DialogContent>
-    )
-}
-
-
-export default DialogForm
+export default DialogForm;
