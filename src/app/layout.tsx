@@ -23,14 +23,14 @@ export default function RootLayout({
       <html lang="pt-br" suppressHydrationWarning>
          <QueryProvider>
             <body className={`${geistSans.variable} antialiased`}>
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-               {children}
-            </ThemeProvider>
+               <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+               >
+                  {children}
+               </ThemeProvider>
             </body>
          </QueryProvider>
       </html>

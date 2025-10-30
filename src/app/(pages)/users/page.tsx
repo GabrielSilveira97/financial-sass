@@ -1,31 +1,19 @@
 "use client";
-import { useUsers } from "@/app/hooks/useUsers";
-import { Spinner } from "@/components/ui/spinner";
-import { ArrowBigDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DataTable } from "../../../components/common/data-table";
+import userColumns from "./columns";
+import { users } from "@/data/mockUsers";
 
 const UsersPage = () => {
-   const { data: users, isLoading, isError } = useUsers();
-
-   type User = {
-      nome: string;
-      id: number;
-      email: string;
-      telefone: string;
-   };
-
    return (
-      <main>
-         <h1 className="">Users page</h1>
-         <section className="">
-            <h1>Usuários</h1>
-            <ArrowBigDown />
-            {isLoading ? (
-               <Spinner />
-            ) : (
-               users.map((user: User) => {
-                  return <p key={user.id}>{user.nome}</p>;
-               })
-            )}
+      <main className="px-10 flex flex-col gap-5 py-5">
+         <section className="flex justify-end">
+            <Button variant="default" className="cursor-pointer">
+               Novo Usuário
+            </Button>
+         </section>
+         <section>
+            <DataTable columns={userColumns} data={users} />
          </section>
       </main>
    );
