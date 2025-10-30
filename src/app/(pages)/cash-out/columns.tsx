@@ -20,6 +20,18 @@ const cashOutColumns: ColumnDef<CashOut>[] = [
             </div>
          );
       },
+      cell: ({ row }) => {
+         const dateString = row.getValue("data_saida") as string;
+         const date = new Date(dateString);
+
+         const formatted = date.toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+         });
+
+         return <div>{formatted}</div>;
+      },
    },
    {
       accessorKey: "nome",
@@ -47,6 +59,15 @@ const cashOutColumns: ColumnDef<CashOut>[] = [
                <ArrowUpDown size={15} />
             </div>
          );
+      },
+      cell: ({ row }) => {
+         const amount = parseFloat(row.getValue("valor"));
+         const formatted = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "BRL",
+         }).format(amount);
+
+         return <div>{formatted}</div>;
       },
    },
 ];

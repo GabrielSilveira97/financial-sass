@@ -1,12 +1,35 @@
+import BalanceCard from "@/components/common/BalanceCard";
 import { balance } from "@/data/mockBalance";
+import {
+   BanknoteArrowDown,
+   BanknoteArrowUp,
+   Receipt,
+   TrendingUp,
+} from "lucide-react";
 
 const BalancePage = () => {
    return (
-      <main>
-         <p>Entradas : {balance.total_entradas}</p>
-         <p>Despesas : {balance.total_despesas}</p>
-         <p>Valor Liquido : {balance.valor_liquido}</p>
-         <p>Ticket médio : {balance.ticket_medio}</p>
+      <main className="grid grid-cols-2 gap-4 p-10 ">
+         <BalanceCard
+            title="Total Entradas"
+            icon={BanknoteArrowUp}
+            value={balance.total_entradas}
+         />
+         <BalanceCard
+            title="Total Despesas"
+            icon={BanknoteArrowDown}
+            value={balance.total_despesas}
+         />
+         <BalanceCard
+            title="Valor Líquido"
+            icon={TrendingUp}
+            value={balance.valor_liquido}
+         />
+         <BalanceCard
+            title="Ticket Médio"
+            icon={Receipt}
+            value={balance.ticket_medio}
+         />
       </main>
    );
 };
