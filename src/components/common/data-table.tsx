@@ -10,7 +10,9 @@ import {
 } from "@/components/ui/table";
 import {
    ColumnDef,
+   ColumnFiltersState,
    flexRender,
+   getFilteredRowModel,
    getCoreRowModel,
    getPaginationRowModel,
    getSortedRowModel,
@@ -18,7 +20,8 @@ import {
    useReactTable,
 } from "@tanstack/react-table";
 import { Button } from "../ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Search } from "lucide-react";
+import { Input } from "../ui/input";
 interface DataTableProps<TData, TValue> {
    columns: ColumnDef<TData, TValue>[];
    data: TData[];
@@ -29,6 +32,8 @@ export const DataTable = <TData, TValue>({
    data,
 }: DataTableProps<TData, TValue>) => {
    const [sorting, setSorting] = React.useState<SortingState>([]);
+   const [rowSelection, setRowSelection] = React.useState({});
+   const [columnFilters, setColumnFilter] = React.useState<ColumnFiltersState>([])
 
    const table = useReactTable({
       data,
@@ -37,14 +42,22 @@ export const DataTable = <TData, TValue>({
       getPaginationRowModel: getPaginationRowModel(),
       onSortingChange: setSorting,
       getSortedRowModel: getSortedRowModel(),
+      onRowSelectionChange: setRowSelection,
+      onColumnFiltersChange: setColumnFilter,
+      getFilteredRowModel: getFilteredRowModel(),
       state: {
          sorting,
+         rowSelection,
+         columnFilters,
       },
    });
 
    return (
       <div>
          <div>
+            <div className="max-w-56 pb-5">
+               <Input placeholder={`Filtrar`} value={(table.getColumn("nome")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("nome")?.setFilterValue(event.target.value)}/>
+            </div>
             <Table>
                <TableHeader>
                   {table.getHeaderGroups().map((headersGroup) => (

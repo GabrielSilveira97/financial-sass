@@ -32,7 +32,7 @@ const LoginForm = () => {
    };
 
    return (
-      <Card className="p-10">
+      <Card className="px-18 py-10">
          <form>
             <FieldSet>
                <FieldLegend>Login</FieldLegend>
@@ -62,7 +62,7 @@ const LoginForm = () => {
                   </Field>
                </FieldGroup>
                <Button
-                  className="cursor-pointer"
+                  className="cursor-pointer mt-5"
                   onClick={handleSubmit}
                   disabled={isPending}
                >
